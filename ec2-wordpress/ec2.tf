@@ -10,7 +10,7 @@ resource "aws_instance" "wordpress-ec2" {
   vpc_security_group_ids = [var.word_press_sg_id]
   subnet_id = var.pub_sub
 
-  user_data = templatefile("/Users/petrovich/else/terraform/wordpress/ec2-wordpress/user_data.tpl",{rds_username = var.rds_username,rds_password = var.rds_password,rds_endpoint = var.rds_endpoint,rds_name = var.rds_name})
+  user_data = templatefile("../ec2-wordpress/user_data.tpl",{rds_username = var.rds_username,rds_password = var.rds_password,rds_endpoint = var.rds_endpoint,rds_name = var.rds_name})
 
   tags = {
     Name = "wordpress-ec2"
